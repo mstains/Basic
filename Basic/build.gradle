@@ -17,6 +17,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
+    //启用viewBinding
+    buildFeatures {
+        viewBinding = true
+    }
 
     buildTypes {
         release {
@@ -37,6 +41,7 @@ dependencies {
 
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
+    implementation libs.androidx.activity
     implementation libs.material
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
