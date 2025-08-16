@@ -5,7 +5,7 @@ plugins {
 
 }
 
-group = 'com.github.moran' // 替换为你的GitHub用户名
+group = 'com.github.mstains' // 替换为你的GitHub用户名
 
 android {
     namespace 'com.letter.basic'
