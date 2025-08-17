@@ -7,6 +7,113 @@ plugins {
 
 group = 'com.github.mstains' // 替换为你的GitHub用户名
 
+def VERSION_CODE = 1
+def VERSION_NAME = "1.0"
+def GROUP_ID = 'com.github.mstains'
+def ARTIFACT_ID = 'basic'
+
+
+// 1. 增加上传源码的task
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    archiveClassifier = "sources"
+}
+
+afterEvaluate{
+
+    publishing {
+        // 配置maven 仓库
+        repositories {
+            // build/outputs/maven_repo
+            maven { url uri(new File(buildDir, "outputs/maven_repo").path) }
+        }
+        // 配置发布产物
+        publications {
+            maven(MavenPublication) { // 容器可配置的信息 MavenPublication
+                groupId GROUP_ID
+                artifactId ARTIFACT_ID
+                version VERSION_NAME
+
+                // 注：AGP 3.6.0 及以上才能使用，作用是将 Android Gradle 插件生成的组件，作为发布的内容
+                from components.release
+            }
+        }
+    }
+
+}
+
+//仓库配置
+//publishing {
+//    // 配置maven 仓库
+//    repositories { RepositoryHandler handler->
+//        handler.mavenLocal()  // 发布到默认的 本地maven 仓库 ，路径： USER_HOME/.m2/repository/
+//    }
+//    // 配置发布产物
+//    publications {PublicationContainer publication->
+//        // 名称可以随便定义，这里定义成 maven，是因为我的 aar 包是发布到 maven 仓库的，所以这里为了见名知义，定义成了 maven
+//        // 任务名称：maven
+////        maven(MavenPublication) {// 容器可配置的信息 MavenPublication
+////            // 依赖 bundleReleaseAar 任务，并上传其产出的aar
+////            afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) } // 方式一：生成aar包
+////            // artifact "$buildDir/outputs/aar/${project.name}-release.aar" // 方式二：指定生成的aar路径
+////            groupId = "com.mei.http"
+////            artifactId = "myhttp"
+////            version = "1.0.4-SNAPSHOT"
+////        }
+//        // 发布 snapshot 包
+//        debug(MavenPublication) {
+//            afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
+//            groupId = "com.mei.http"
+//            artifactId = "myhttp"
+//            version = "1.0.4-SNAPSHOT"
+//            // pom文件中声明依赖，从而传递到使用方
+//            pom.withXml {
+//                def dependenciesNode = asNode().appendNode('dependencies')
+//                configurations.implementation.allDependencies.each {
+//                    // 避免出现空节点或 artifactId=unspecified 的节点
+//                    if (it.group != null && (it.name != null && "unspecified" != it.name) && it.version != null) {
+//                        println "dependency=${it.toString()}"
+//                        def dependencyNode = dependenciesNode.appendNode('dependency')
+//                        dependencyNode.appendNode('groupId', it.group)
+//                        dependencyNode.appendNode('artifactId', it.name)
+//                        dependencyNode.appendNode('version', it.version)
+//                        dependencyNode.appendNode('scope', 'implementation')
+//                    }
+//                }
+//            }
+//        }
+//        // 发布正式包
+//        release(MavenPublication) {
+//            afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
+//            groupId = "com.mei.http"
+//            artifactId = "myhttp"
+//            version = "1.0.4"
+//
+//            // pom文件中声明依赖，从而传递到使用方
+//            pom.withXml {
+//                def dependenciesNode = asNode().appendNode('dependencies')
+//                configurations.implementation.allDependencies.each {
+//                    // 避免出现空节点或 artifactId=unspecified 的节点
+//                    if (it.group != null && (it.name != null && "unspecified" != it.name) && it.version != null) {
+//                        println "dependency=${it.toString()}"
+//                        def dependencyNode = dependenciesNode.appendNode('dependency')
+//                        dependencyNode.appendNode('groupId', it.group)
+//                        dependencyNode.appendNode('artifactId', it.name)
+//                        dependencyNode.appendNode('version', it.version)
+//                        dependencyNode.appendNode('scope', 'implementation')
+//                    }
+//                }
+//            }
+//        }
+//
+//
+//    }
+//}
+
+
+
+
+
 android {
     namespace 'com.letter.basic'
     compileSdk 35

@@ -4,11 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
-import com.energy.sources.base.BaseViewModel
-import com.energy.sources.base.manager.ReceiverManager
-import com.energy.sources.receiver.ReceiverImpl
 import com.letter.basic.fragment.BaseMultiStateVBVMFragment
+import com.letter.basic.manager.ReceiverManager
+import com.letter.basic.receiver.ReceiverImpl
 
 /**
  * @ProjectName:    trip_android
@@ -22,7 +22,7 @@ import com.letter.basic.fragment.BaseMultiStateVBVMFragment
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  */
-abstract class BaseMultiStateVBVMReceiverFragment<VB : ViewBinding, VM : BaseViewModel> :
+abstract class BaseMultiStateVBVMReceiverFragment<VB : ViewBinding, VM : ViewModel> :
     BaseMultiStateVBVMFragment<VB, VM>(), ReceiverImpl {
 
     private val mReceiverManager: ReceiverManager by lazy { ReceiverManager(this) }
