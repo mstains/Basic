@@ -1,4 +1,4 @@
-package com.energy.sources.base.fragment
+package com.letter.basic.fragment
 
 import android.content.Context
 import android.content.Intent
@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
-import com.letter.basic.fragment.BaseMultiStateVBVMFragment
 import com.letter.basic.manager.ReceiverManager
 import com.letter.basic.receiver.ReceiverImpl
 
