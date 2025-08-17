@@ -19,28 +19,28 @@ task sourceJar(type: Jar) {
     archiveClassifier = "sources"
 }
 
-afterEvaluate{
-
-    publishing {
-        // 配置maven 仓库
-        repositories {
-            // build/outputs/maven_repo
-            maven { url uri(new File(buildDir, "outputs/maven_repo").path) }
-        }
-        // 配置发布产物
-        publications {
-            maven(MavenPublication) { // 容器可配置的信息 MavenPublication
-                groupId GROUP_ID
-                artifactId ARTIFACT_ID
-                version VERSION_NAME
-
-                // 注：AGP 3.6.0 及以上才能使用，作用是将 Android Gradle 插件生成的组件，作为发布的内容
-                from components.release
-            }
-        }
-    }
-
-}
+//afterEvaluate{
+//
+//    publishing {
+//        // 配置maven 仓库
+//        repositories {
+//            // build/outputs/maven_repo
+//            maven { url uri(new File(buildDir, "outputs/maven_repo").path) }
+//        }
+//        // 配置发布产物
+//        publications {
+//            maven(MavenPublication) { // 容器可配置的信息 MavenPublication
+//                groupId GROUP_ID
+//                artifactId ARTIFACT_ID
+//                version VERSION_NAME
+//
+//                // 注：AGP 3.6.0 及以上才能使用，作用是将 Android Gradle 插件生成的组件，作为发布的内容
+//                from components.release
+//            }
+//        }
+//    }
+//
+//}
 
 //仓库配置
 //publishing {
