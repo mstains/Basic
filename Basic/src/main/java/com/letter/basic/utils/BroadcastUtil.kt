@@ -7,7 +7,6 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 
 /**
  ********************************************
- * Create by Vander
  * 2018/12/4 11:31
  * description:广播的Util
  * ******************************************

@@ -5,7 +5,6 @@ import android.content.Intent
 
 /**
  ********************************************
- * Create by Vander
  * 2018/12/4 11:13
  * description: 广播接收者的抽象
  * ******************************************
@@ -35,10 +34,7 @@ interface ReceiverImpl {
     fun unRegisterAllAction()
 
 
-    /**
-     * 返回Context对象
-     */
-    fun getReceiverContext(): Context
+
 
 
 }

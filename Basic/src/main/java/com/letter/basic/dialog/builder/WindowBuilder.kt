@@ -5,7 +5,6 @@ import android.view.WindowManager
 
 /**
  ********************************************
- * Create by Vander
  * 2018/11/29 16:53
  * description: Dialog Window相关的构造者
  * ******************************************

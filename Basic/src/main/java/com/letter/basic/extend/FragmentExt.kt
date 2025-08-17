@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentTransaction
 
 /**
  ********************************************
- * Create by Vander
  * 2018/11/28 15:34
  * description:Fragment的扩展函数
  * ******************************************

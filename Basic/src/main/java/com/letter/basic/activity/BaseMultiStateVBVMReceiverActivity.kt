@@ -22,7 +22,7 @@ import com.letter.basic.manager.ReceiverManager
 abstract class BaseMultiStateVBVMReceiverActivity<VB : ViewBinding, VM : ViewModel> :
     BaseMultiStateVBVMActivity<VB, VM>(), ReceiverImpl {
 
-    private val mReceiverManager: ReceiverManager by lazy { ReceiverManager(this) }
+    private val mReceiverManager: ReceiverManager by lazy { ReceiverManager(this,this) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,13 +58,6 @@ abstract class BaseMultiStateVBVMReceiverActivity<VB : ViewBinding, VM : ViewMod
         mReceiverManager.unRegisterAllAction()
     }
 
-    /**
-     * 返回Context对象
-     */
-    override fun getReceiverContext(): Context {
-
-        return this
-    }
 
     override fun onDestroy() {
         super.onDestroy()

@@ -9,18 +9,20 @@ import com.letter.basic.utils.BroadcastUtil
 
 /**
  ********************************************
- * Create by Vander
  * 2018/12/4 11:12
  * description: 广播管理者
  * ******************************************
  */
 class ReceiverManager {
 
-    var mReceiverImpl: ReceiverImpl
+    private var mContext: Context
+
+    private var mReceiverImpl: ReceiverImpl
 
     private var mReceiverMap: HashMap<String, Receiver>? = null
 
-    constructor(impl: ReceiverImpl) {
+    constructor(context: Context, impl: ReceiverImpl) {
+        this.mContext = context
         this.mReceiverImpl = impl
     }
 
@@ -35,7 +37,9 @@ class ReceiverManager {
             if (!containsKey(action)) {
                 var receiver = Receiver()
                 this[action] = receiver
-                BroadcastUtil.registerLocalAction(action, receiver, mReceiverImpl.getReceiverContext())
+                BroadcastUtil.registerLocalAction(
+                    action, receiver, mContext
+                )
             }
         }
     }
@@ -46,7 +50,7 @@ class ReceiverManager {
     fun unRegisterAction(action: String) {
         mReceiverMap?.let { map ->
             map[action]?.let { receiver ->
-                BroadcastUtil.unRegisterAction(mReceiverImpl.getReceiverContext(), receiver)
+                BroadcastUtil.unRegisterAction(mContext, receiver)
             }
         }
     }
@@ -55,7 +59,7 @@ class ReceiverManager {
      * 注销所有广播
      */
     fun unRegisterAllAction() {
-        BroadcastUtil.unRegisterAction(mReceiverImpl.getReceiverContext(), mReceiverMap)
+        BroadcastUtil.unRegisterAction(mContext, mReceiverMap)
     }
 
     /**

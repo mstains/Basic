@@ -24,7 +24,12 @@ import com.letter.basic.receiver.ReceiverImpl
 abstract class BaseMultiStateVBVMReceiverFragment<VB : ViewBinding, VM : ViewModel> :
     BaseMultiStateVBVMFragment<VB, VM>(), ReceiverImpl {
 
-    private val mReceiverManager: ReceiverManager by lazy { ReceiverManager(this) }
+    private val mReceiverManager: ReceiverManager by lazy {
+        ReceiverManager(
+            requireContext(),
+            this
+        )
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,6 +41,7 @@ abstract class BaseMultiStateVBVMReceiverFragment<VB : ViewBinding, VM : ViewMod
      * 初始化广播监听
      * */
     abstract fun initBroadcast()
+
     /**
      * 广播接收的回掉
      */
@@ -64,13 +70,6 @@ abstract class BaseMultiStateVBVMReceiverFragment<VB : ViewBinding, VM : ViewMod
         mReceiverManager.unRegisterAllAction()
     }
 
-    /**
-     * 返回Context对象
-     */
-    override fun getReceiverContext(): Context {
-
-        return this.requireContext()
-    }
 
     override fun onDestroy() {
         super.onDestroy()

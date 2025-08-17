@@ -23,7 +23,7 @@ import com.letter.basic.receiver.ReceiverImpl
 abstract class BaseVBReceiverDialogFragment<VB : ViewBinding> : BaseVBDialogFragment<VB>(),
     ReceiverImpl {
 
-    private val mReceiverManager: ReceiverManager by lazy { ReceiverManager(this) }
+    private val mReceiverManager: ReceiverManager by lazy { ReceiverManager(requireContext(),this) }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -66,13 +66,7 @@ abstract class BaseVBReceiverDialogFragment<VB : ViewBinding> : BaseVBDialogFrag
         mReceiverManager.unRegisterAllAction()
     }
 
-    /**
-     * 返回Context对象
-     */
-    override fun getReceiverContext(): Context {
 
-        return requireContext()
-    }
 
     override fun onDestroy() {
         super.onDestroy()
