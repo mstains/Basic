@@ -16,8 +16,8 @@ import androidx.viewbinding.ViewBinding
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  */
-abstract class BaseVBVMDialogFragment<VB : ViewBinding, VM : ViewModel> :
-    BaseVBDialogFragment<VB>() {
+abstract class BaseMultiStateVBVMDialogFragment<VB : ViewBinding, VM : ViewModel> :
+    BaseMultiStateVBDialogFragment<VB>() {
 
     protected val mViewModel: VM by lazy {
         ViewModelProvider.NewInstanceFactory().create(providerVMClass())

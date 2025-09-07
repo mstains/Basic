@@ -28,7 +28,7 @@ import com.letter.basic.dialog.builder.WindowBuilder
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  */
-abstract class BaseVBDialogFragment<VB : ViewBinding> : DialogFragment(), LifecycleObserver {
+abstract class BaseMultiStateVBDialogFragment<VB : ViewBinding> : DialogFragment(), LifecycleObserver {
 
 
     /**

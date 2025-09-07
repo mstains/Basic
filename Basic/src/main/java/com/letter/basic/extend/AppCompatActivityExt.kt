@@ -2,24 +2,23 @@ package com.letter.basic.extend
 
 
 import android.app.Activity
-import android.app.ProgressDialog.show
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
-import android.text.TextUtils.replace
+import android.os.Parcelable
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.annotation.IdRes
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.letter.basic.R
+import java.io.Serializable
 
 
 /**
@@ -191,8 +190,84 @@ fun Context.dip2px(dpValue: Float): Int {
     return (dpValue * scale + 0.5f).toInt()
 }
 
+/**
+ * 封装获取intent中string值
+ * */
+fun Activity.getStringExtra(keyName: String, defaultValue: String = ""): String {
+
+    return intent.getStringExtra(keyName) ?: defaultValue
+
+}
+
+/**
+ * 获取intent中List<String>值
+ * */
+fun Activity.getStringListExtra(
+    keyName: String, defaultValue: MutableList<String> = mutableListOf()
+): MutableList<String> {
+
+    return intent.getStringArrayListExtra(keyName) ?: defaultValue
+
+}
 
 
+/**
+ * 封装获取intent中boolean值
+ * */
+fun Activity.getBooleanExtra(keyName: String, defaultValue: Boolean = false): Boolean {
+
+    return intent.getBooleanExtra(keyName, defaultValue)
+}
+
+
+/**
+ * 封装获取intent中double值
+ * */
+fun Activity.getDoubleExtra(keyName: String, defaultValue: Double = 0.0): Double =
+    intent.getDoubleExtra(keyName, defaultValue)
+
+
+/**
+ * 封装获取intent中int值
+ * */
+fun Activity.getIntExtra(keyName: String, defaultValue: Int = 0): Int =
+    intent.getIntExtra(keyName, defaultValue)
+
+
+/**
+ * 封装获取intent中Long值
+ * */
+fun Activity.getLongExtra(keyName: String, defaultValue: Long = 0L): Long =
+    intent.getLongExtra(keyName, defaultValue)
+
+/**
+ * 封装获取intent中Float值
+ * */
+fun Activity.getFloatExtra(keyName: String, defaultValue: Float = 0f): Float {
+
+    return intent.getFloatExtra(keyName, defaultValue)
+}
+
+
+/**
+ * 获取Serializable
+ * */
+fun <T> Activity.getSerializableExtra(keyName: String): T? {
+
+    return try {
+        intent.getSerializableExtra(keyName) as T?
+    } catch (e: Exception) {
+        e.printStackTrace()
+        null
+    }
+
+}
+
+/**
+ * 获取ParcelableExtra
+ * */
+fun <T : Parcelable> Activity.getParcelableExtra(keyName: String): T? =
+    intent.getParcelableExtra<T>(keyName)
 
 
 

@@ -1,6 +1,6 @@
 package com.letter.basic.extend
 
-import android.content.Context
+import android.os.Parcelable
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -121,6 +121,115 @@ fun Fragment.hideAllChild() {
     }
 }
 
+
+/**
+ * 封装获取intent中string值
+ * */
+fun Fragment.getStringExtra(keyName: String, defaultValue: String = ""): String {
+
+    return requireActivity().intent.getStringExtra(keyName) ?: defaultValue
+
+}
+
+/**
+ * 封装获取Fragment中string值
+ * */
+fun Fragment.getArgumentsStringExtra(keyName: String, defaultValue: String = ""): String {
+    return arguments?.getString(keyName) ?: defaultValue
+
+}
+
+/**
+ * 封装获取Fragment中Int值
+ * */
+fun Fragment.getArgumentsIntExtra(keyName: String, defaultValue: Int = 0): Int {
+    return arguments?.getInt(keyName) ?: defaultValue
+
+}
+
+/**
+ * 封装获取Fragment中Long值
+ * */
+fun Fragment.getArgumentsLongExtra(keyName: String, defaultValue: Long = 0L): Long {
+    return arguments?.getLong(keyName) ?: defaultValue
+
+}
+
+/**
+ * 封装获取Fragment中Boolean值
+ * */
+fun Fragment.getArgumentsBooleanExtra(keyName: String, defaultValue: Boolean = false): Boolean {
+    return arguments?.getBoolean(keyName, defaultValue) ?: defaultValue
+
+}
+
+/**
+ * 封装获取Fragment中Serializable值
+ * */
+fun <T> Fragment.getArgumentsSerializableExtra(keyName: String): T? {
+    return try {
+        arguments?.getSerializable(keyName) as T?
+    } catch (e: Exception) {
+        e.printStackTrace()
+        null
+    }
+
+
+}
+
+
+/**
+ * 封装获取intent中boolean值
+ * */
+fun Fragment.getBooleanExtra(keyName: String, defaultValue: Boolean = false): Boolean =
+    requireActivity().intent.getBooleanExtra(keyName, defaultValue)
+
+/**
+ * 封装获取intent中double值
+ * */
+fun Fragment.getDoubleExtra(keyName: String, defaultValue: Double = 0.0): Double =
+    requireActivity().intent.getDoubleExtra(keyName, defaultValue)
+
+/**
+ * 封装获取intent中int值
+ * */
+fun Fragment.getIntExtra(keyName: String, defaultValue: Int = 0): Int =
+    requireActivity().intent.getIntExtra(keyName, defaultValue)
+
+
+/**
+ * 封装获取intent中Long值
+ * */
+fun Fragment.getLongExtra(keyName: String, defaultValue: Long = 0L): Long =
+    requireActivity().intent.getLongExtra(keyName, defaultValue)
+
+
+/**
+ * 封装获取intent中Float值
+ * */
+fun Fragment.getFloatExtra(keyName: String, defaultValue: Float = 0f): Float =
+    requireActivity().intent.getFloatExtra(keyName, defaultValue)
+
+
+/**
+ * 获取Serializable
+ * */
+fun <T> Fragment.getSerializableExtra(keyName: String): T? {
+    return try {
+        requireActivity().getSerializableExtra(keyName) as T?
+    } catch (e: Exception) {
+        e.printStackTrace()
+        null
+    }
+
+
+}
+
+/**
+ * 获取ParcelableExtra
+ * */
+fun <T : Parcelable> Fragment.getParcelableExtra(keyName: String): T? =
+    requireActivity().getParcelableExtra<T>(keyName)
 
 
 

@@ -19,7 +19,7 @@ import com.letter.basic.receiver.ReceiverImpl
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  */
-abstract class BaseVBReceiverDialogFragment<VB : ViewBinding> : BaseVBDialogFragment<VB>(),
+abstract class BaseMultiStateVBReceiverDialogFragment<VB : ViewBinding> : BaseMultiStateVBDialogFragment<VB>(),
     ReceiverImpl {
 
     private val mReceiverManager: ReceiverManager by lazy { ReceiverManager(requireContext(),this) }

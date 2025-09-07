@@ -1,48 +1,49 @@
-package com.letter.basic.fragment
+package com.letter.basic.dialog
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 import com.letter.basic.manager.ReceiverManager
 import com.letter.basic.receiver.ReceiverImpl
 
+
 /**
- * @Package:        com.energy.sources.base.fragment
- * @ClassName:      BaseMultiStateVBVMReceiverFragment
- * @Description:    fragment基类，带网络请求及广播监听
+ * @Package:        com.letter.basic.dialog
+ * @ClassName:      BaseVBVMReceiverDialogFragment
+ * @Description:    DialogFragment的基类
  * @Author:         Boqing.wu
- * @CreateDate:     2025/1/6 下午1:29
+ * @CreateDate:     2024/12/17 14:52
  * @UpdateUser:     更新者：
- * @UpdateDate:     2025/1/6 下午1:29
+ * @UpdateDate:     2024/12/17 14:52
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  */
-abstract class BaseMultiStateVBVMReceiverFragment<VB : ViewBinding, VM : ViewModel> :
-    BaseMultiStateVBVMFragment<VB, VM>(), ReceiverImpl {
+abstract class BaseMultiStateVBVMReceiverDialogFragment<VB : ViewBinding, VM : ViewModel> :
+    BaseMultiStateVBVMDialogFragment<VB, VM>(), ReceiverImpl {
 
     private val mReceiverManager: ReceiverManager by lazy {
         ReceiverManager(
-            requireContext(),
-            this
+            requireContext(), this
         )
     }
 
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         initBroadcast()
     }
 
-    /**
-     * 初始化广播监听
-     * */
-    abstract fun initBroadcast()
 
     /**
-     * 广播接收的回调
+     * 初始化广播
+     */
+    open fun initBroadcast() {
+
+    }
+
+    /**
+     * 广播接收的回掉
      */
     override fun onReceive(context: Context?, intent: Intent?) {
 
