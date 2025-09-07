@@ -8,23 +8,14 @@ import com.letter.basic.utils.BroadcastUtil
 
 
 /**
- ********************************************
- * 2018/12/4 11:12
- * description: 广播管理者
+ * 2018/12/4 11:31
+ * description:广播管理类
  * ******************************************
  */
-class ReceiverManager {
+class ReceiverManager(private val mContext: Context, private val mReceiverImpl: ReceiverImpl) {
 
-    private var mContext: Context
-
-    private var mReceiverImpl: ReceiverImpl
 
     private var mReceiverMap: HashMap<String, Receiver>? = null
-
-    constructor(context: Context, impl: ReceiverImpl) {
-        this.mContext = context
-        this.mReceiverImpl = impl
-    }
 
     /**
      * 注册广播
@@ -35,7 +26,7 @@ class ReceiverManager {
         }
         mReceiverMap?.apply {
             if (!containsKey(action)) {
-                var receiver = Receiver()
+                val receiver = Receiver()
                 this[action] = receiver
                 BroadcastUtil.registerLocalAction(
                     action, receiver, mContext

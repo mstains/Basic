@@ -7,7 +7,7 @@ import androidx.viewbinding.ViewBinding
 
 /**
  * @ProjectName:    trip_android
- * @Package:        com.geely.travel.geelytravel.base.geely.dialog
+ * @Package:         com.letter.basic.dialog
  * @ClassName:      BaseDialogVBVMDialogFragment
  * @Description:    DialogFragment基类
  * @Author:         Boqing.wu

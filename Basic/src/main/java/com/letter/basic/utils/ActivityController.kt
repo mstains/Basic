@@ -1,14 +1,24 @@
 package com.letter.basic.utils
 
 import android.app.Activity
+import android.app.Application
 import java.lang.ref.WeakReference
 import java.util.*
 
 
 object ActivityController {
+
     private val actList = LinkedList<Activity>()
 
-    private lateinit var sCurrentActivityWeakRef: WeakReference<Activity>
+    private var mApplication: Application? = null
+
+    /**
+     * 设置application
+     * */
+    fun setApplication(application: Application) {
+        this.mApplication = application
+    }
+
     fun addActivity(activity: Activity) {
         actList.add(activity)
     }
@@ -29,18 +39,12 @@ object ActivityController {
         return actList.size
     }
 
-
-    fun setCurrentActivity(activity: Activity) {
-        sCurrentActivityWeakRef = WeakReference<Activity>(activity)
+    /**
+     * 获取application对象
+     * */
+    fun getApplication(): Application? {
+        return mApplication
     }
 
-    fun getCurrentActivity(): Activity? {
 
-        if (sCurrentActivityWeakRef != null && sCurrentActivityWeakRef.get() != null) {
-
-            return sCurrentActivityWeakRef.get()
-        }
-
-        return null
-    }
 }

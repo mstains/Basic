@@ -10,7 +10,7 @@ import com.letter.basic.receiver.ReceiverImpl
 
 /**
  * @ProjectName:    trip_android
- * @Package:        com.geely.travel.geelytravel.base.geely.dialog
+ * @Package:        com.letter.basic.dialog
  * @ClassName:      BaseDialogVBReceiverFragment
  * @Description:    DialogFragment的基类
  * @Author:         Boqing.wu

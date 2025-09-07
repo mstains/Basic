@@ -46,7 +46,4 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
-    //implementation 'com.github.mstains:Basic:1.1-SNAPSHOT'
-    //implementation 'com.github.mstains:Basic:master-SNAPSHOT'
-    implementation 'com.github.mstains:Basic:1.2-SNAPSHOT'
 }

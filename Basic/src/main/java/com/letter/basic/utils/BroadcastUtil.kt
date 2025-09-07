@@ -37,7 +37,7 @@ object BroadcastUtil {
     fun unRegisterAction(context: Context, map: HashMap<String, out BroadcastReceiver>?) {
         map?.apply {
             map.keys.forEach {
-                var receiver = get(it)
+                val receiver = get(it)
                 receiver?.let {
                     LocalBroadcastManager.getInstance(context).unregisterReceiver(receiver)
                 }

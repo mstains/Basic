@@ -19,7 +19,7 @@ import com.letter.basic.dialog.builder.WindowBuilder
 
 /**
  * @ProjectName:    trip_android
- * @Package:        com.geely.travel.geelytravel.base.geely.dialog
+ * @Package:        BaseVBDialogFragment
  * @ClassName:      BaseDialogVBFragment
  * @Description:    DialogFragment的基类
  * @Author:         Boqing.wu
