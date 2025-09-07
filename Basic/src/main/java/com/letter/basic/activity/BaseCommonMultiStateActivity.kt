@@ -1,10 +1,7 @@
 package com.letter.basic.activity
 
-import androidx.core.content.ContextCompat
-import com.letter.basic.R
 
 /**
- * @ProjectName:    trip_android
  * @Package:        com.energy.sources.base.activity
  * @ClassName:      BaseCommonMultiStateVBActivity
  * @Description:    activity基类，common层封装一些基础数据

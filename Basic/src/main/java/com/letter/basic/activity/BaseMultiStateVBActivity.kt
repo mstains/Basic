@@ -6,7 +6,6 @@ import androidx.viewbinding.ViewBinding
 
 
 /**
- * @ProjectName:    trip_android
  * @Package:        com.energy.sources.base.activity
  * @ClassName:      BaseMultiStateVBActivity
  * @Description:    activity基类，多个页面状态的activity

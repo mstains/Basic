@@ -18,7 +18,6 @@ import androidx.viewbinding.ViewBinding
 import com.letter.basic.dialog.builder.WindowBuilder
 
 /**
- * @ProjectName:    trip_android
  * @Package:        BaseVBDialogFragment
  * @ClassName:      BaseDialogVBFragment
  * @Description:    DialogFragment的基类

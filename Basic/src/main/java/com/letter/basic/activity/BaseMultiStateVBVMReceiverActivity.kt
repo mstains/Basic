@@ -1,14 +1,12 @@
 package com.letter.basic.activity
 
-import android.content.Context
 import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
-import com.letter.basic.receiver.ReceiverImpl
 import com.letter.basic.manager.ReceiverManager
+import com.letter.basic.receiver.ReceiverImpl
 
 /**
- * @ProjectName:    trip_android
  * @Package:        com.energy.sources.base.activity
  * @ClassName:      BaseMultiStateVBVMReceiverActivity
  * @Description:    带广播监听的activity基类

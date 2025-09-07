@@ -10,7 +10,6 @@ import com.letter.basic.manager.ReceiverManager
 import com.letter.basic.receiver.ReceiverImpl
 
 /**
- * @ProjectName:    trip_android
  * @Package:        com.energy.sources.base.fragment
  * @ClassName:      BaseMultiStateVBVMReceiverFragment
  * @Description:    fragment基类，带网络请求及广播监听

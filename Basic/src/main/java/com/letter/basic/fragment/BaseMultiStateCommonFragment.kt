@@ -9,7 +9,6 @@ import androidx.lifecycle.LifecycleObserver
 
 
 /**
- * @ProjectName:    trip_android
  * @Package:        com.energy.sources.base.fragment
  * @ClassName:      BaseCommonFragment
  * @Description:    Fragment基类
@@ -20,7 +19,7 @@ import androidx.lifecycle.LifecycleObserver
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  */
-abstract class BaseMultiStateCommonFragment : Fragment() , LifecycleObserver {
+abstract class BaseMultiStateCommonFragment : Fragment(), LifecycleObserver {
 
 
     override fun onCreateView(

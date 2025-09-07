@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 
 /**
- * @ProjectName:    trip_android
  * @Package:         com.letter.basic.dialog
  * @ClassName:      BaseDialogVBVMDialogFragment
  * @Description:    DialogFragment基类

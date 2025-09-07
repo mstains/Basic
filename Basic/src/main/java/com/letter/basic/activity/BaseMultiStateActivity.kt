@@ -7,7 +7,6 @@ import com.letter.basic.utils.ActivityController
 
 
 /**
- * @ProjectName:    trip_android
  * @Package:        com.energy.sources.base.activity
  * @ClassName:      BaseMultiStateActivity
  * @Description:    activity基类

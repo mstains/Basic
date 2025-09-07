@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 
 /**
- * @ProjectName:    trip_android
  * @Package:        com.energy.sources.base.fragment
  * @ClassName:      BaseMultiStateVBFragment
  * @Description:    Fragment基类

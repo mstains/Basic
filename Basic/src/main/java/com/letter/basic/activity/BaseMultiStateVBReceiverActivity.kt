@@ -9,7 +9,6 @@ import com.letter.basic.receiver.ReceiverImpl
 import com.letter.basic.manager.ReceiverManager
 
 /**
- * @ProjectName:    trip_android
  * @Package:        com.energy.sources.base.activity
  * @ClassName:      BaseMultiStateVBVMReceiverActivity
  * @Description:    带广播监听的activity基类

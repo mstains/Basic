@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 
 /**
- * @ProjectName:    trip_android
  * @Package:        com.energy.sources.base.fragment
  * @ClassName:      BaseMultiStateVBVBFragment
  * @Description:    Fragment基类，带网络请求
